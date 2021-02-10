@@ -63,6 +63,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>VxTel</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

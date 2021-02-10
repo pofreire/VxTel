@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"br.com.vxtel.controller"})
+@ComponentScan(basePackages = {"br.com.vxtel.*"})
 public class VxtelApplication {
 	
 	public static void main(String[] args) {

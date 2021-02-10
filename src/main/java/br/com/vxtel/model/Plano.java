@@ -1,6 +1,6 @@
 package br.com.vxtel.model;
 
-public enum Planos {
+public enum Plano {
 	
 	FALEMAIS30(30),
 	FALEMAIS60(60),
@@ -8,7 +8,7 @@ public enum Planos {
 	
 	private Integer duracao;
 	
-	private Planos(Integer duracao) {
+	private Plano(Integer duracao) {
 		this.duracao = duracao;
 	}
 
