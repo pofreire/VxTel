@@ -1,5 +1,6 @@
 package br.com.vxtel.model;
 
+
 public class Tarifa {
 
 	private Integer origem; 
@@ -8,6 +9,8 @@ public class Tarifa {
 	private Integer tempo;
 	double comFaleMais = 0;
 	double semFaleMais = 0;
+	
+	public Tarifa() {}
 	
 	public Tarifa(Integer origem, Integer destino, Plano plano, Integer tempo, double comFaleMais, double semFaleMais) {
 		super();
