@@ -18,11 +18,11 @@ ou
 Execute a classe VxtelApplication
 ```
 
-Em seguida acesse em http://localhost:8080
+Em seguida acesse em http://localhost:8080/swagger-ui.html
 
 # API REST
 
-**POST** requisições para ```/api/calculatarifa``` retorna tarifas conforme informações enviadas, em formato JSON
+**POST** requisições para ```/calculatarifa``` retorna tarifas conforme informações enviadas, em formato JSON
 
 <hr/>
 
