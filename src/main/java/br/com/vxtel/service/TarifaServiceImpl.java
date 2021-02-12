@@ -13,51 +13,53 @@ public class TarifaServiceImpl implements TarifaService{
 
 		double comFaleMais = 0;
 		double semFaleMais = 0;
-		double acrescimo = 0;
-		int novoTempo = tempo - plano.getDuracao() < 0 ? 0 : plano.getDuracao();
-		
-		if (novoTempo > 0) {
-			acrescimo = 0.1;
-		}
 				
 		if(origem.equals(11) && destino.equals(16)) {
-			double valor = novoTempo * 1.9;
-			comFaleMais = valor + (valor * acrescimo);
-			semFaleMais = (tempo * 1.9);
+			float porcentagem = 1.9f;
+			comFaleMais = retornaFaleMais(plano, tempo, porcentagem);
+			semFaleMais = retornaSemFaleMais(tempo, porcentagem);
 		}
 		
 		if(origem.equals(16) && destino.equals(11)) {
-			double valor = novoTempo * 2.9;
-			comFaleMais = valor + (valor * acrescimo);
-			semFaleMais = (tempo * 2.9);
+			float porcentagem = 2.9f;
+			comFaleMais = retornaFaleMais(plano, tempo, porcentagem);
+			semFaleMais = retornaSemFaleMais(tempo, porcentagem);
 		}
 		
 		if(origem.equals(11) && destino.equals(17)) {
-			double valor = novoTempo * 1.7;
-			comFaleMais = valor + (valor * acrescimo);
-			semFaleMais = (tempo * 1.7);
+			float porcentagem = 1.7f;
+			comFaleMais = retornaFaleMais(plano, tempo, porcentagem);
+			semFaleMais = retornaSemFaleMais(tempo, porcentagem);
 		}
 		
 		if(origem.equals(17) && destino.equals(11)) {
-			double valor = novoTempo * 2.7;
-			comFaleMais = valor + (valor * acrescimo);
-			semFaleMais = (tempo * 2.7);
+			float porcentagem = 2.7f;
+			comFaleMais = retornaFaleMais(plano, tempo, porcentagem);
+			semFaleMais = retornaSemFaleMais(tempo, porcentagem);
 		}
 		
 		if(origem.equals(11) && destino.equals(18)) {
-			double valor = novoTempo * .9;
-			comFaleMais = valor + (valor * acrescimo);
-			semFaleMais = (tempo * .9);
+			float porcentagem = .9f;
+			comFaleMais = retornaFaleMais(plano, tempo, porcentagem);
+			semFaleMais = retornaSemFaleMais(tempo, porcentagem);
 		}
 		
 		if(origem.equals(18) && destino.equals(11)) {
-			double valor = novoTempo * 1.9;
-			comFaleMais = valor + (valor * acrescimo);
-			semFaleMais = (tempo * 1.9);
+			float porcentagem = 1.9f;
+			comFaleMais = retornaFaleMais(plano, tempo, porcentagem);
+			semFaleMais = retornaSemFaleMais(tempo, porcentagem);
 		}
 			
 		Tarifa tarifa = new Tarifa(origem, destino, plano, tempo, comFaleMais, semFaleMais);
 		return tarifa;
+	}
+	
+	private double retornaFaleMais(Plano plano, Integer tempo, float porcentagem) {
+		return Math.round(plano.retornaTempoMenosDuracao(tempo) * porcentagem * 10) / 10.0;
+	}
+	
+	private double retornaSemFaleMais(Integer tempo, float porcentagem) {
+		return Math.round((tempo * porcentagem) * 10) / 10.0;
 	}
 	
 }

@@ -17,11 +17,13 @@ public class IndexController{
 	private TarifaServiceImpl tarifaService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public void tarifas() {
+	public Plano[] tarifas() {
 		
+		Plano[] planos;
+		return planos = Plano.values();
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "/calculatarifa", method = RequestMethod.POST)
 	public @ResponseBody Tarifa exibeTarifa() {
 		
 //    	@RequestParam(value = "origem", required = false) Integer origem,

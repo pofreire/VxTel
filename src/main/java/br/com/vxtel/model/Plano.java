@@ -15,5 +15,17 @@ public enum Plano {
 	public Integer getDuracao() {
 		return duracao;
 	}
+
+	public float retornaTempoMenosDuracao(Integer tempo) {
+		float valor = tempo - this.duracao;
+		
+		if(valor < 0) {
+			return 0;
+		}else {
+			valor += valor * 0.1;
+		}
+		
+		return valor;
+	}
 	
 }
