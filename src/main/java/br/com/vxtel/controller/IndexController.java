@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.vxtel.model.Plano;
@@ -23,14 +24,13 @@ public class IndexController{
 		return planos = Plano.values();
 	}
 	
-	@RequestMapping(value = "/calculatarifa", method = RequestMethod.POST)
-	public @ResponseBody Tarifa exibeTarifa() {
-		
-//    	@RequestParam(value = "origem", required = false) Integer origem,
-//	 	  @RequestParam(value = "destino", required = false) Integer destino,
-//	 	  @RequestParam(value = "plano", required = false) Plano plano,
-//	 	  @RequestParam(value = "tempo", required = false) Integer tempo
-		Tarifa calculaTarifa = tarifaService.calculaTarifa(11, 16, Plano.FALEMAIS30, 20);
+	@RequestMapping(value = "/api/calculatarifa", method = RequestMethod.POST)
+	public @ResponseBody Tarifa exibeTarifa(@RequestParam(value = "origem", required = false) Integer origem,
+		 	  								@RequestParam(value = "destino", required = false) Integer destino,
+ 	  										@RequestParam(value = "plano", required = false) Plano plano,
+ 	  										@RequestParam(value = "tempo", required = false) Integer tempo) {
+    	
+		Tarifa calculaTarifa = tarifaService.calculaTarifa(origem, destino, plano, tempo);
 		System.out.println(calculaTarifa);
 		
 		return calculaTarifa;
